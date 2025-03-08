@@ -14,7 +14,7 @@ export default function Menu() {
 
   return (
     <Container>
-      <nav className="flex items-center justify-between p-2">
+      <nav className="flex items-center justify-between py-2">
         <Logo text={{ position: "right" }} />
         <button
           className="block sm:hidden"

@@ -13,7 +13,7 @@ const Logo: React.FC<LogoProps> = ({ size = "md", text }) => {
     return (
       <div className="flex justify-center items-center flex-col gap-1">
         <LogoImage />
-        <span className="text-lg font-semibold">Bohio</span>
+        <span className="text-lg font-semibold">Bohío</span>
       </div>
     );
   }
@@ -29,7 +29,7 @@ const Logo: React.FC<LogoProps> = ({ size = "md", text }) => {
     return (
       <div className="flex justify-center items-center gap-1">
         <LogoImage />
-        <span className="text-lg font-semibold">Bohio</span>
+        <span className="text-lg font-semibold">Bohío</span>
       </div>
     );
   }
@@ -45,7 +45,7 @@ const LogoImage = ({ size = "sm" }: { size?: "sm" | "md" | "lg" }) => {
       width={widthAndHeight}
       height={widthAndHeight}
       src="/logo.png"
-      alt="Bohio branding logo"
+      alt="Bohío branding logo"
     />
   );
 };
