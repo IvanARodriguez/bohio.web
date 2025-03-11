@@ -17,14 +17,19 @@ const Text: React.FC<TextProps> = ({
   ...rest
 }) => {
   const sizeClasses = {
-    jumbo: "text-5xl",
-    xl: "text-4xl",
-    lg: "text-2xl",
+    jumbo: "text-4xl sm:text-5xl",
+    xl: "text-3xl sm:text-4xl",
+    lg: "text-xl sm:text-2xl",
     md: "text-base",
     sm: "text-sm",
   };
 
-  const combinedClassName = `${sizeClasses[size]} ${className} font-${fontFamily}`;
+  const fontClasses = {
+    sans: "font-sans",
+    serif: "font-serif",
+  };
+
+  const combinedClassName = `${sizeClasses[size]} ${className} ${fontClasses[fontFamily] || ""}`;
 
   switch (variant) {
     case "h1":

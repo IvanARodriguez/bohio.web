@@ -1,8 +1,7 @@
 "use client";
-
+import { Dictionary } from "@/app/[lang]/dictionaries/dictionary";
 import React, { createContext, useContext, useState, ReactNode, useMemo } from "react";
 
-// Define types
 interface App {
   header: {
     nav: {
@@ -14,15 +13,20 @@ interface App {
 
 interface GlobalState {
   app: App;
+  dictionary: Dictionary;
 }
 
 const GlobalContext = createContext<GlobalState | undefined>(undefined);
 
-// Provider component
-export const GlobalProvider = ({ children }: { children: ReactNode }) => {
+export const GlobalProvider = ({
+  children,
+  dictionary,
+}: {
+  children: ReactNode;
+  dictionary: Dictionary;
+}) => {
   const [isNavOpen, setIsNavOpen] = useState<boolean>(false);
 
-  // Memoize context value to prevent unnecessary re-renders
   const contextValue = useMemo<GlobalState>(
     () => ({
       app: {
@@ -33,18 +37,23 @@ export const GlobalProvider = ({ children }: { children: ReactNode }) => {
           },
         },
       },
+      dictionary,
     }),
-    [isNavOpen]
+    [isNavOpen, dictionary]
   );
 
   return <GlobalContext.Provider value={contextValue}>{children}</GlobalContext.Provider>;
 };
 
-// Custom hook for using context
 export const useGlobalContext = () => {
   const context = useContext(GlobalContext);
   if (!context) {
     throw new Error("useGlobalContext must be used within a GlobalProvider");
   }
   return context;
+};
+
+export const useDictionary = () => {
+  const context = useGlobalContext();
+  return context.dictionary;
 };
