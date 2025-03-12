@@ -1,8 +1,14 @@
 {
+  "login": "login",
+  "register": "register",
   "homePage": {
+    "head": {
+      "title": "Bohío",
+      "description": "Find and share the best home spaces ideas for bedrooms, kitchens, bathrooms, patios, living rooms, office & more."
+    },
     "main": {
-      "title1": "Inspiring Home Spaces for",
-      "title2": "Every Style"
+      "title": "Inspiring Home Spaces for\nEvery Style",
+      "subtitle": "Discover, create, and share beautifully designed spaces\n that reflect your unique taste."
     }
   }
 }

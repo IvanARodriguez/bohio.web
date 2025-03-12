@@ -52,7 +52,7 @@ export default function Button(props: ButtonProps) {
       buttonStyles += " rounded-full";
       break;
     case "circle":
-      buttonStyles += "h-11 w-11 rounded-full";
+      buttonStyles += " h-11 w-11 rounded-full";
       break;
     default:
       buttonStyles += " rounded";

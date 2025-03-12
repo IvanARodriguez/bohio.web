@@ -1,9 +1,13 @@
 // Define types
 export interface Dictionary {
   homePage: {
+    head: {
+      title: string;
+      description: string;
+    };
     main: {
-      title1: string;
-      title2: string;
+      title: string;
+      subtitle: string;
     };
   };
   search: {

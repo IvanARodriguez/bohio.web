@@ -1,8 +1,14 @@
 {
+  "login": "Iniciar sesión",
+  "register": "Registrarse",
   "homePage": {
+    "head": {
+      "title": "Bohío",
+      "description": "Encuentra y comparte las mejores ideas de espacios para el hogar en dormitorios, cocinas, baños, patios, salas de estar, oficinas y más."
+    },
     "main": {
-      "title1": "Espacios del hogar inspiradores para",
-      "title2": "Cada estilo"
+      "title": "Espacios del hogar inspirados para\nCada estilo",
+      "subtitle": "Descubre, crea y comparte espacios bellamente diseñados\nque reflejen tu gusto único."
     }
   }
 }
