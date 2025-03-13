@@ -15,6 +15,16 @@ function getLocale(request: NextRequest) {
 export function middleware(request: NextRequest) {
   const { pathname } = request.nextUrl;
 
+  if (
+    pathname.endsWith(".ico") ||
+    pathname.endsWith(".webmanifest") ||
+    pathname.endsWith(".png") ||
+    pathname.endsWith(".svg") ||
+    pathname.endsWith(".webp")
+  ) {
+    return NextResponse.next();
+  }
+
   // Check if pathname already contains a supported locale
   const pathnameHasLocale = locales.some(
     (locale) => pathname.startsWith(`/${locale}/`) || pathname === `/${locale}`

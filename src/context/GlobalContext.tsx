@@ -53,7 +53,7 @@ export const useGlobalContext = () => {
   return context;
 };
 
-export const useDictionary = () => {
+export const useDictionary: () => Dictionary = () => {
   const context = useGlobalContext();
   return context.dictionary;
 };

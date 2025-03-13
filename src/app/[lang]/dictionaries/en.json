@@ -1,4 +1,13 @@
 {
+  "login": "Login",
+  "register": "Register",
+  "signInWithOpenAccount": "Sign in with Open account",
+  "signInWithGoogle": "Sign in with Google",
+  "continueWithEmail": "Or continue with email address",
+  "email": "Email",
+  "password": "Password",
+  "confirmPassword": "Confirm Password",
+  "forgotPassword": "Forgot password?",
   "homePage": {
     "main": {
       "title1": "Inspiring Home Spaces for",

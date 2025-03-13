@@ -13,6 +13,7 @@ interface ButtonProps extends React.HTMLAttributes<HTMLButtonElement> {
     | "tertiary";
   ariaLabel?: string;
   variant?: "pill" | "circle";
+  fullWith?: boolean;
   icon?: {
     element: React.ReactNode;
     iconPosition: "left" | "right" | "center";
@@ -27,10 +28,11 @@ export default function Button(props: ButtonProps) {
     ariaLabel = "button",
     variant = "rounded",
     className = "",
+    fullWith = true,
   } = props;
 
   let buttonStyles =
-    "flex cursor-pointer items-center min-h-[44px] px-4 py-1 transition-all font-medium focus:outline-none";
+    "flex cursor-pointer items-center justify-center gap-2 min-h-[44px] px-4 py-1 transition-all font-medium focus:outline-none";
 
   // Button color based on the provided color prop
   switch (color) {
@@ -38,10 +40,13 @@ export default function Button(props: ButtonProps) {
       buttonStyles += " bg-orange-900 text-white hover:bg-orange-800";
       break;
     case "secondary":
-      buttonStyles += " bg-gray-500 text-white hover:bg-gray-600";
+      buttonStyles += " bg-gray-200 text-gray-900 hover:bg-gray-600";
       break;
     case "success":
       buttonStyles += " bg-green-500 text-white hover:bg-green-600";
+      break;
+    case "outline":
+      buttonStyles += " border border-1 border-gray-600 hover:bg-gray-100";
       break;
     default:
       buttonStyles += " bg-gray-500 text-white";
@@ -52,7 +57,7 @@ export default function Button(props: ButtonProps) {
       buttonStyles += " rounded-full";
       break;
     case "circle":
-      buttonStyles += "h-11 w-11 rounded-full";
+      buttonStyles += " h-11 w-11 rounded-full";
       break;
     default:
       buttonStyles += " rounded";
@@ -65,6 +70,8 @@ export default function Button(props: ButtonProps) {
       ? "ml-2"
       : ""
     : "";
+
+  if (fullWith) buttonStyles += " w-full max-w-none";
 
   buttonStyles += className;
 

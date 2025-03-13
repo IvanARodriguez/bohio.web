@@ -17,7 +17,7 @@ const SearchForm: React.FC = () => {
         className="h-10 px-6 flex-1 focus:outline-none placeholder:text-gray-700"
         placeholder="what would you love to find?"
       />
-      <Button variant="circle">
+      <Button fullWith={false} variant="circle">
         <SearchIcon size={30} strokeWidth={4} />
       </Button>
     </form>

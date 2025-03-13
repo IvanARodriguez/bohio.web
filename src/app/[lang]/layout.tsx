@@ -34,10 +34,7 @@ export default async function RootLayout({ children, params }: LayoutProps) {
   return (
     <html lang={lang}>
       <body className={`${interSans.variable} ${merriweatherSerif.variable} antialiased`}>
-        <GlobalProvider dictionary={dictionary}>
-          <Header />
-          {children}
-        </GlobalProvider>
+        <GlobalProvider dictionary={dictionary}>{children}</GlobalProvider>
       </body>
     </html>
   );

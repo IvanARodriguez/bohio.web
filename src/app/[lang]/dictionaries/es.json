@@ -1,4 +1,13 @@
 {
+  "login": "Iniciar Sección",
+  "register": "Registrarse",
+  "signInWithOpenAccount": "Inicia sección con Cuenta Abierta",
+  "signInWithGoogle": "Inicia sección con Google",
+  "continueWithEmail": "O continua con dirección de email",
+  "email": "Email",
+  "password": "Contraseña",
+  "confirmPassword": "Confirmar Contraseña",
+  "forgotPassword": "Olvido su contraseña?",
   "homePage": {
     "main": {
       "title1": "Espacios del hogar inspiradores para",

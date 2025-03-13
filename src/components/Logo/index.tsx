@@ -3,49 +3,50 @@ import Image from "next/image";
 
 interface LogoProps {
   size?: "sm" | "md" | "lg";
-  text?: {
-    position: "center" | "left" | "right";
-  };
+  className?: string;
+  type?: "image" | "svg"; // Allow switching between image and SVG
 }
 
-const Logo: React.FC<LogoProps> = ({ size = "md", text }) => {
-  if (text && text.position === "center") {
-    return (
-      <div className="flex justify-center items-center flex-col gap-1">
-        <LogoImage />
-        <span className="text-lg font-semibold">Bohío</span>
-      </div>
-    );
-  }
-  if (text && text.position === "left") {
-    return (
-      <div className="flex justify-center items-center gap-1">
-        <span className="text-lg font-semibold">Bohio</span>
-        <LogoImage />
-      </div>
-    );
-  }
-  if (text && text.position === "right") {
-    return (
-      <div className="flex justify-center items-center gap-1">
-        <LogoImage />
-        <span className="text-lg font-semibold">Bohío</span>
-      </div>
-    );
-  }
-  return <LogoImage />;
+const Logo: React.FC<LogoProps> = ({ size = "md", type = "image", className }) => {
+  const LogoComponent = type === "svg" ? SvgLogo : LogoImage;
+
+  return <LogoComponent className={className} size={size} />;
 };
 
 export default Logo;
 
-const LogoImage = ({ size = "sm" }: { size?: "sm" | "md" | "lg" }) => {
-  const widthAndHeight = size == "sm" ? 52 : size == "md" ? 80 : 150;
+// Image-based logo component
+const LogoImage = ({
+  size = "sm",
+  className = "",
+}: {
+  size?: "sm" | "md" | "lg";
+  className?: string;
+}) => {
+  const widthAndHeight = size === "sm" ? 52 : size === "md" ? 80 : 150;
   return (
     <Image
+      className={className}
       width={widthAndHeight}
       height={widthAndHeight}
       src="/logo.png"
       alt="Bohío branding logo"
     />
+  );
+};
+
+// SVG-based logo component
+const SvgLogo = ({ className = "" }: { className?: string }) => {
+  return (
+    <svg
+      xmlns="http://www.w3.org/2000/svg"
+      version="1.1"
+      x="0px"
+      y="0px"
+      viewBox="0 0 504 504"
+      fill="currentColor"
+    >
+      <path d="M191.93,419.56 M312.61,419.56 M503.11,501.22c-1.05,1.73-2.88,2.78-4.84,2.78h-69.48c-0.08,0-0.15-0.01-0.23-0.02    c-0.09,0-0.17,0.02-0.25,0.02H317.74c-3.74,0-6.77-3.16-6.77-7.07v-77.37c0-34.24-26.7-62.1-59.52-62.1s-59.52,27.86-59.52,62.1    v77.37c0,3.9-3.03,7.07-6.77,7.07H75.21h-1.08H5.73c-1.96,0-3.79-1.05-4.84-2.78c-1.05-1.73-1.18-3.9-0.34-5.76L148.4,168.07    l-32.52-71.75c-1.35-2.99-0.13-6.55,2.73-7.96c2.86-1.41,6.28-0.14,7.63,2.85l22.76,50.23V68.99c0-3.3,2.57-5.98,5.73-5.98    s5.73,2.68,5.73,5.98v72.44l22.76-50.23c1.35-2.99,4.77-4.26,7.63-2.85c2.86,1.41,4.08,4.98,2.73,7.96l-32.51,71.75l19.79,43.67    l-10.98,24.24h-39.57l-17.95,39.61h39.57l-5.42,11.96h-39.57l-17.95,39.61h39.57l-5.42,11.96H83.57l-68.4,150.74h54.67    l173.88-383.72l-32.3-71.29c-1.6-3.53-0.15-7.74,3.23-9.41c3.38-1.67,7.42-0.16,9.02,3.37l20.78,45.85V7.07    c0-3.9,3.03-7.07,6.77-7.07c3.74,0,6.77,3.16,6.77,7.07v67.6l20.78-45.85c1.6-3.53,5.64-5.04,9.02-3.37    c3.38,1.67,4.83,5.88,3.23,9.41l-32.3,71.29l173.88,383.72h55.66l-68.32-150.74h-40.64l-5.42-11.96h40.64l-17.95-39.61h-40.64    l-5.42-11.96h40.64l-17.95-39.61h-40.64l-10.45-23.06l20.32-44.84L309.9,96.32c-1.35-2.99-0.13-6.55,2.73-7.96    c2.86-1.41,6.28-0.13,7.63,2.85l22.76,50.23V68.99c0-3.3,2.57-5.98,5.73-5.98s5.73,2.68,5.73,5.98v72.44l22.76-50.23    c1.35-2.99,4.77-4.26,7.63-2.85c2.86,1.41,4.08,4.98,2.73,7.96l-32.51,71.75l148.35,327.39    C504.29,497.32,504.16,499.49,503.11,501.22z M367.77,224.02l-19.01-41.95l-18.19,40.14c-0.32,0.71-0.76,1.31-1.28,1.82H367.77z     M135.73,224.02h38.47c-0.52-0.5-0.96-1.11-1.28-1.82l-18.19-40.14L135.73,224.02z M233.85,161h34.73l-17.37-38.32L233.85,161z     M210.48,212.58h81.47l-16.96-37.44h-47.54L210.48,212.58z M187.11,264.15h128.21l-16.96-37.44h-94.28L187.11,264.15z     M417.61,489.86l-95.88-211.58H180.71L84.83,489.86h93.55v-70.31c0-42.04,32.78-76.24,73.06-76.24c40.29,0,73.06,34.2,73.06,76.24    v70.31H417.61z M252,289.69c-10.36,0-18.76,8.76-18.76,19.57c0,10.81,8.4,19.57,18.76,19.57c10.36,0,18.76-8.76,18.76-19.57    C270.76,298.45,262.36,289.69,252,289.69z M200.83,295.91c-7.07,0-12.79,5.98-12.79,13.35c0,7.37,5.73,13.35,12.79,13.35    c7.07,0,12.79-5.98,12.79-13.35C213.62,301.89,207.89,295.91,200.83,295.91z M303.17,295.91c-7.07,0-12.79,5.98-12.79,13.35    c0,7.37,5.73,13.35,12.79,13.35c7.07,0,12.79-5.98,12.79-13.35C315.97,301.89,310.24,295.91,303.17,295.91z M405.07,353.06    c-7.07,0-12.79,5.98-12.79,13.35c0,7.37,5.73,13.35,12.79,13.35c7.07,0,12.79-5.98,12.79-13.35    C417.86,359.04,412.13,353.06,405.07,353.06z M98.93,353.06c-7.07,0-12.79,5.98-12.79,13.35c0,7.37,5.73,13.35,12.79,13.35    c7.07,0,12.79-5.98,12.79-13.35C111.73,359.04,106,353.06,98.93,353.06z" />
+    </svg>
   );
 };
