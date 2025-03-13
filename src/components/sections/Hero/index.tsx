@@ -7,17 +7,38 @@ import { useGlobalContext } from "@/context/GlobalContext";
 
 function Hero() {
   const { dictionary } = useGlobalContext();
-  console.log(dictionary);
   const homepage = dictionary["homePage"];
+  const translatedTitle = homepage.main.title.split("\n");
+  const translatedSubtitle = homepage.main.subtitle.split("\n");
+  const renderTranslatedTitle = () => (
+    <>
+      {translatedTitle.map((line, i) => (
+        <span key={i}>
+          {line}
+          <br />
+        </span>
+      ))}
+    </>
+  );
+  const renderTranslatedSubtitle = () => (
+    <>
+      {translatedSubtitle.map((line, i) => (
+        <span key={i}>
+          {line}
+          <br />
+        </span>
+      ))}
+    </>
+  );
+
   return (
     <main>
       <div className="flex flex-col text-center items-center justify-center py-12 gap-2 min-h-44">
         <Text className="sm:leading-18" fontFamily="serif" variant="h1" size="jumbo">
-          {homepage.main.title1} <br /> {homepage.main.title2}
+          {renderTranslatedTitle()}
         </Text>
         <Text variant="h2" size="lg">
-          Discover, create, and share beautifully designed spaces <br /> that reflect your unique
-          taste.
+          {renderTranslatedSubtitle()}
         </Text>
         <SearchForm />
       </div>

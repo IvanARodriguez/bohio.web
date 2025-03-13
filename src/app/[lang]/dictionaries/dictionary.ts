@@ -10,9 +10,13 @@ export interface Dictionary {
   confirmPassword: string;
   forgotPassword: string;
   homePage: {
+    head: {
+      title: string;
+      description: string;
+    };
     main: {
-      title1: string;
-      title2: string;
+      title: string;
+      subtitle: string;
     };
   };
   search: {

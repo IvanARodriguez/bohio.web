@@ -1,6 +1,6 @@
 "use client";
 
-import { useGlobalContext } from "@/context/GlobalContext";
+import { useDictionary, useGlobalContext } from "@/context/GlobalContext";
 import { motion } from "framer-motion";
 import { X, Menu as MenuIcon, PanelRightClose, ArrowRight } from "lucide-react";
 import React, { useState } from "react";
@@ -62,15 +62,16 @@ export default function Menu() {
 }
 
 const NavItems = () => {
+  const dictionary = useDictionary();
   const items: { href: string; text: string; linkStyle: "button" | "plain" }[] = [
     {
       href: "/login",
-      text: "Login",
+      text: "login",
       linkStyle: "plain",
     },
     {
       href: "/register",
-      text: "Register",
+      text: "register",
       linkStyle: "button",
     },
   ];
@@ -80,7 +81,7 @@ const NavItems = () => {
       {items.map((item, i) => (
         <li key={item.text + i}>
           <Link href={item.href} variant={item.linkStyle}>
-            {item.text}
+            {dictionary[item.text]}
           </Link>
         </li>
       ))}
