@@ -17,5 +17,30 @@
       "title": "Inspiring Home Spaces for\nEvery Style",
       "subtitle": "Discover, create, and share beautifully designed spaces\n that reflect your unique taste."
     }
+  },
+  "homespace": {
+    "title": "Let's add a space 🎉🎉🎉",
+    "subtitle": "A space can be a kitchen, a bedroom, your office, or maybe a patio",
+    "space_title": "Space title",
+    "space_title_placeholder": "My beautiful kitchen with custom cabinets",
+    "description": "Description",
+    "description_placeholder": "Enter a description for your home space",
+    "category": "Category",
+    "category_placeholder": "Living Room",
+    "city": "City",
+    "city_placeholder": "Dallas",
+    "state": "State",
+    "state_placeholder": "Texas",
+    "country": "Country",
+    "country_placeholder": "USA",
+    "features": "Features",
+    "features_placeholder": "Open concept, Natural lighting, smart room",
+    "features_hint": "Use a \"comma\" to add a feature",
+    "next": "Next"
+  },
+  "validations": {
+    "name_required": "Name is required",
+    "description_required": "Description is required",
+    "category_required": "Category is required"
   }
 }

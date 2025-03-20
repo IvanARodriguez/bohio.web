@@ -22,5 +22,30 @@ export interface Dictionary {
   search: {
     placeholder: string;
   };
+  validations: {
+    name_required: string;
+    description_required: string;
+    category_required: string;
+  };
+  homespace: {
+    title: string;
+    subtitle: string;
+    space_title: string;
+    space_title_placeholder: string;
+    description: string;
+    description_placeholder: string;
+    category: string;
+    category_placeholder: string;
+    city: string;
+    city_placeholder: string;
+    state: string;
+    state_placeholder: string;
+    country: string;
+    country_placeholder: string;
+    features: string;
+    features_placeholder: string;
+    features_hint: string;
+    next: string;
+  };
   [key: string]: any;
 }

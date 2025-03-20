@@ -17,5 +17,30 @@
       "title": "Espacios del hogar inspirados para\nCada estilo",
       "subtitle": "Descubre, crea y comparte espacios bellamente diseñados\nque reflejen tu gusto único."
     }
+  },
+  "homespace": {
+    "title": "Vamos a agregar un espacio 🎉🎉🎉",
+    "subtitle": "Un espacio puede ser una cocina, una habitación, tu oficina o tal ves un patio",
+    "space_title": "Título del espacio",
+    "space_title_placeholder": "Mi hermosa cocina con gabinetes personalizados",
+    "description": "Descripción",
+    "description_placeholder": "Ingresa una descripción para tu espacio en casa",
+    "category": "Categoría",
+    "category_placeholder": "Sala de estar",
+    "city": "Ciudad",
+    "city_placeholder": "Dallas",
+    "state": "Estado",
+    "state_placeholder": "Texas",
+    "country": "País",
+    "country_placeholder": "USA",
+    "features": "Características",
+    "features_placeholder": "Concepto abierto, iluminación natural, habitación inteligente",
+    "features_hint": "Usa una 'coma' para añadir una característica",
+    "next": "Siguiente"
+  },
+  "validations": {
+    "name_required": "Nombre es requerido",
+    "description_required": "Descripción es requerido",
+    "category_required": "Categoría es requerido"
   }
 }

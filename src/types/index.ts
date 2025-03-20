@@ -28,3 +28,26 @@ export interface GlobalState {
   dictionary: Dictionary;
   user: User;
 }
+
+export type HomespaceStatus = "Draft" | "Published" | "Archived";
+
+export interface Homespace {
+  name: string;
+  description: string;
+  features: string[];
+  tags: string[];
+  category: string;
+  city: string;
+  state: string;
+  country: string;
+  status: HomespaceStatus;
+  createdAt?: string;
+  updatedAt?: string;
+  media?: Media[];
+}
+
+export interface Media {
+  id: string;
+  url: string;
+  mediaType: "Image" | "Video";
+}

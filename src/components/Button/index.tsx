@@ -33,21 +33,24 @@ export default function Button(props: ButtonProps) {
   } = props;
 
   let buttonStyles =
-    "flex cursor-pointer items-center justify-center gap-2 min-h-[44px] px-4 py-1 transition-all font-medium focus:outline-none";
+    "flex cursor-pointer items-center justify-center gap-2 px-4 py-1 transition-all font-medium focus:outline-none";
 
   // Button color based on the provided color prop
   switch (color) {
     case "primary":
-      buttonStyles += " bg-orange-900 text-white hover:bg-orange-800";
+      buttonStyles += " bg-orange-900 text-white hover:bg-orange-800  min-h-[44px]";
       break;
     case "secondary":
-      buttonStyles += " bg-gray-200 text-gray-900 hover:bg-gray-300 ";
+      buttonStyles += " bg-gray-200 text-gray-900 hover:bg-gray-300  min-h-[44px]";
       break;
     case "success":
-      buttonStyles += " bg-green-500 text-white hover:bg-green-600";
+      buttonStyles += " bg-green-500 text-white hover:bg-green-600 min-h-[44px]";
       break;
     case "outline":
-      buttonStyles += " border border-1 border-gray-600 hover:bg-gray-100";
+      buttonStyles += " border border-1 border-gray-600 hover:bg-gray-100  min-h-[44px]";
+      break;
+    case "tertiary":
+      buttonStyles += " bg-gray-200 text-gray-800 hover:bg-gray-300";
       break;
     default:
       buttonStyles += " bg-gray-500 text-white";

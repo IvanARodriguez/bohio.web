@@ -35,7 +35,6 @@ export const AuthProvider = ({ children }: { children: ReactNode }) => {
         setIsLoading(false);
       }
     };
-
     checkAuthStatus();
   }, []);
 
@@ -64,7 +63,6 @@ export const AuthProvider = ({ children }: { children: ReactNode }) => {
   };
 
   const logout = async () => {
-    console.log("logging out");
     try {
       await axiosPrivate.get("/api/auth/logout");
       setUser(null);
