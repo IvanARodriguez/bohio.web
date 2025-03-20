@@ -1,20 +1,7 @@
 "use client";
-import { Dictionary } from "@/app/[lang]/dictionaries/dictionary";
+import { GlobalState, User } from "@/types";
+import { Dictionary } from "@/types/dictionary";
 import React, { createContext, useContext, useState, ReactNode, useMemo } from "react";
-
-interface App {
-  header: {
-    nav: {
-      isOpen: boolean;
-      setNavOpen: (isOpen: boolean) => void;
-    };
-  };
-}
-
-interface GlobalState {
-  app: App;
-  dictionary: Dictionary;
-}
 
 const GlobalContext = createContext<GlobalState | undefined>(undefined);
 
@@ -29,6 +16,17 @@ export const GlobalProvider = ({
 
   const contextValue = useMemo<GlobalState>(
     () => ({
+      user: {
+        id: "",
+        username: "",
+        email: "",
+        fullName: "",
+        isAuthenticated: false,
+        profilePictureUrl: null,
+        roles: [],
+        lastLogin: null,
+        subscriptionStatus: null,
+      },
       app: {
         header: {
           nav: {

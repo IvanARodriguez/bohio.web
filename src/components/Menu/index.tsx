@@ -1,13 +1,14 @@
 "use client";
 
-import { useDictionary, useGlobalContext } from "@/context/GlobalContext";
+import { useDictionary, useGlobalContext } from "@/context/globalContext";
 import { motion } from "framer-motion";
-import { X, Menu as MenuIcon, PanelRightClose, ArrowRight } from "lucide-react";
-import React, { useState } from "react";
+import { Menu as MenuIcon, ArrowRight } from "lucide-react";
+import React from "react";
 import Logo from "@/components/Logo";
-import Container from "../common/Container";
 import Link from "@/components/Link";
 import Text from "../Text";
+import { useAuth } from "@/context/authProvider";
+import Button from "../Button";
 
 export default function Menu() {
   const { app } = useGlobalContext();
@@ -62,6 +63,7 @@ export default function Menu() {
 }
 
 const NavItems = () => {
+  const { user, logout, isLoading } = useAuth();
   const dictionary = useDictionary();
   const items: { href: string; text: string; linkStyle: "button" | "plain" }[] = [
     {
@@ -76,15 +78,40 @@ const NavItems = () => {
     },
   ];
 
+  if (isLoading) {
+    return (
+      <div role="status" className="max-w-sm flex gap-4 animate-pulse">
+        <div className="h-11 bg-gray-200 rounded dark:bg-gray-300 w-22"></div>
+        <div className="h-11 bg-gray-200 rounded dark:bg-gray-300 w-22"></div>
+        <span className="sr-only">Loading...</span>
+      </div>
+    );
+  }
+
   return (
-    <ul className="flex mt-2 sm:items-center  flex-col sm:flex-row p-6  lg:p-0 lg:gap-4">
-      {items.map((item, i) => (
-        <li key={item.text + i}>
-          <Link href={item.href} variant={item.linkStyle}>
-            {dictionary[item.text]}
-          </Link>
-        </li>
-      ))}
+    <ul className="flex gap-2 sm:items-center flex-col sm:flex-row lg:p-0 lg:gap-4">
+      {user?.isAuthenticated ? (
+        <>
+          <li>
+            {user.username ? `Welcome ${user.username.split("@")[0] || user.username}` : "Hi There"}
+          </li>
+          <li>
+            <Button color="secondary" onClick={logout}>
+              logout
+            </Button>
+          </li>
+        </>
+      ) : (
+        <>
+          {items.map((item, i) => (
+            <li key={item.text + i}>
+              <Link href={item.href} variant={item.linkStyle}>
+                {dictionary[item.text]}
+              </Link>
+            </li>
+          ))}
+        </>
+      )}
     </ul>
   );
 };

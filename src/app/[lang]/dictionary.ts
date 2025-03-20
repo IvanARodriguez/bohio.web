@@ -1,6 +1,6 @@
 // lib/dictionary.ts
 import "server-only";
-import { Dictionary } from "./dictionaries/dictionary";
+import { Dictionary } from "../../types/dictionary";
 import { Language } from "@/types";
 
 // Dynamically import the JSON files for each locale

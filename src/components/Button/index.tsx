@@ -1,6 +1,6 @@
 import React from "react";
 
-interface ButtonProps extends React.HTMLAttributes<HTMLButtonElement> {
+interface ButtonProps extends React.ButtonHTMLAttributes<HTMLButtonElement> {
   children?: React.ReactNode;
   color?:
     | "primary"
@@ -29,6 +29,7 @@ export default function Button(props: ButtonProps) {
     variant = "rounded",
     className = "",
     fullWith = true,
+    onClick,
   } = props;
 
   let buttonStyles =
@@ -40,7 +41,7 @@ export default function Button(props: ButtonProps) {
       buttonStyles += " bg-orange-900 text-white hover:bg-orange-800";
       break;
     case "secondary":
-      buttonStyles += " bg-gray-200 text-gray-900 hover:bg-gray-600";
+      buttonStyles += " bg-gray-200 text-gray-900 hover:bg-gray-300 ";
       break;
     case "success":
       buttonStyles += " bg-green-500 text-white hover:bg-green-600";
@@ -79,7 +80,7 @@ export default function Button(props: ButtonProps) {
     icon && icon.iconPosition === "center" ? "flex justify-center items-center" : "";
 
   return (
-    <button className={buttonStyles} aria-label={ariaLabel}>
+    <button className={buttonStyles} onClick={onClick} aria-label={ariaLabel}>
       {icon && icon.iconPosition === "center" ? (
         <span className={iconWrapperStyles}>{icon.element}</span>
       ) : (

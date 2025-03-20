@@ -1,7 +1,7 @@
 "use client";
 
 import Link from "@/components/Link";
-import { useDictionary } from "@/context/GlobalContext";
+import { useDictionary } from "@/context/globalContext";
 import React from "react";
 
 function DontHaveAccount() {

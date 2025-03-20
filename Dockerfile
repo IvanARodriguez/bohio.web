@@ -3,6 +3,7 @@ FROM node:22 AS builder
 ENV PNPM_HOME="/pnpm"
 ENV PATH="$PNPM_HOME:$PATH"
 ENV NODE_ENV="production"
+ENV NEXT_PUBLIC_API_URL = "https://www.bohio.net"
 
 WORKDIR /app
 

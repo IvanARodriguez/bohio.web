@@ -3,7 +3,7 @@
 import React from "react";
 import Text from "@/components/Text";
 import SearchForm from "@/components/forms/SearchForm";
-import { useGlobalContext } from "@/context/GlobalContext";
+import { useGlobalContext } from "@/context/globalContext";
 
 function Hero() {
   const { dictionary } = useGlobalContext();

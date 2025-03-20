@@ -1,13 +1,32 @@
 "use client";
 
-import React from "react";
+import React, { FormEvent, useState } from "react";
 import Button from "@/components/Button";
 import Text from "@/components/Text";
-import { useDictionary } from "@/context/GlobalContext";
+import { useDictionary } from "@/context/globalContext";
 import GoogleLogo from "../Logo/GoogleLogo";
+import { useAuth } from "@/context/authProvider";
 
 function LoginForm() {
   const t = useDictionary();
+
+  const [creds, setCreds] = useState<{
+    email: string;
+    password: string;
+    errors: Record<string, string>;
+  }>({
+    email: "",
+    password: "",
+    errors: {},
+  });
+
+  const { login } = useAuth();
+
+  const handleSubmit = async (e: FormEvent) => {
+    e.preventDefault();
+    await login({ email: creds.email, password: creds.password });
+  };
+
   return (
     <div className="max-w-md mx-auto w-full">
       <Text size="xl">{t.login}</Text>
@@ -28,7 +47,7 @@ function LoginForm() {
         </div>
       </div>
 
-      <div className="space-y-4">
+      <form onSubmit={handleSubmit} className="space-y-4">
         <div className="relative">
           <div className="absolute inset-y-0 left-3 flex items-center pointer-events-none">
             <svg
@@ -47,6 +66,8 @@ function LoginForm() {
             </svg>
           </div>
           <input
+            value={creds.email}
+            onChange={(e) => setCreds({ ...creds, email: e.target.value })}
             type="email"
             placeholder={t.email}
             className="block w-full pl-10 pr-3 py-3 border border-gray-200 rounded-lg bg-gray-50 text-gray-900 focus:outline-none focus:ring-2 focus:primary focus:primary"
@@ -71,14 +92,17 @@ function LoginForm() {
             </svg>
           </div>
           <input
+            value={creds.password}
+            onChange={(e) => setCreds({ ...creds, password: e.target.value })}
             type="password"
+            autoComplete="current-password"
             placeholder={t.password}
             className="block w-full pl-10 pr-3 py-3 border border-gray-200 rounded-lg bg-gray-50 text-gray-900 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500"
           />
         </div>
 
-        <Button>{t.login}</Button>
-      </div>
+        <Button type="submit">{t.login}</Button>
+      </form>
     </div>
   );
 }

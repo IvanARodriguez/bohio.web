@@ -1,10 +1,11 @@
 import type { Metadata, ResolvingMetadata } from "next";
 import { Inter, Merriweather } from "next/font/google";
 import "../globals.css";
-import { GlobalProvider, useDictionary } from "@/context/GlobalContext";
+import { GlobalProvider, useDictionary } from "@/context/globalContext";
 import Header from "@/components/common/Header";
 import { getDictionary } from "./dictionary";
 import { Language } from "@/types";
+import { AuthProvider } from "@/context/authProvider";
 
 const interSans = Inter({
   variable: "--font-sans",
@@ -34,7 +35,9 @@ export default async function RootLayout({ children, params }: LayoutProps) {
   return (
     <html lang={lang}>
       <body className={`${interSans.variable} ${merriweatherSerif.variable} antialiased`}>
-        <GlobalProvider dictionary={dictionary}>{children}</GlobalProvider>
+        <GlobalProvider dictionary={dictionary}>
+          <AuthProvider>{children}</AuthProvider>
+        </GlobalProvider>
       </body>
     </html>
   );

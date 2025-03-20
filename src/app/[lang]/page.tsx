@@ -1,9 +1,9 @@
 import Container from "@/components/common/Container";
 import Header from "@/components/common/Header";
 import Hero from "@/components/sections/Hero";
-import { useDictionary } from "@/context/GlobalContext";
+import { useDictionary } from "@/context/globalContext";
 import { Metadata } from "next";
-import { Dictionary } from "./dictionaries/dictionary";
+import { Dictionary } from "../../types/dictionary";
 import { getDictionary } from "./dictionary";
 import { Language } from "@/types";
 
