@@ -9,6 +9,7 @@ export interface Dictionary {
   password: string;
   confirmPassword: string;
   forgotPassword: string;
+  dontHaveAnAccount: string;
   homePage: {
     head: {
       title: string;

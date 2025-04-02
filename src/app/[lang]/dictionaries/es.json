@@ -8,6 +8,7 @@
   "password": "Contraseña",
   "confirmPassword": "Confirmar Contraseña",
   "forgotPassword": "Olvido su contraseña?",
+  "dontHaveAnAccount": "No tiene una cuenta?",
   "homePage": {
     "head": {
       "title": "Bohío",
