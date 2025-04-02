@@ -1,5 +1,5 @@
 "use client";
-import { GlobalState, User } from "@/types";
+import { GlobalState } from "@/types";
 import { Dictionary } from "@/types/dictionary";
 import React, { createContext, useContext, useState, ReactNode, useMemo } from "react";
 

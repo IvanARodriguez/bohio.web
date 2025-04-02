@@ -9,7 +9,7 @@ function DontHaveAccount() {
 
   return (
     <div className="text-right mb-16">
-      <span className="text-gray-500 text-sm">Don't have an account?</span>{" "}
+      <span className="text-gray-500 text-sm">{dict.dontHaveAnAccount}</span>{" "}
       <Link href="/register" variant="blue" underline>
         {dict.register}
       </Link>
