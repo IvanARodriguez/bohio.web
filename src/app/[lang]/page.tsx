@@ -6,6 +6,7 @@ import { Metadata } from "next";
 import { Dictionary } from "../../types/dictionary";
 import { getDictionary } from "./dictionary";
 import { Language } from "@/types";
+import { div } from "framer-motion/client";
 
 type Props = {
   params: Promise<{ lang: Language }>;
@@ -22,9 +23,11 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
 
 export default function Home() {
   return (
-    <Container>
-      <Header />
+    <>
+      <Container>
+        <Header />
+      </Container>
       <Hero />
-    </Container>
+    </>
   );
 }

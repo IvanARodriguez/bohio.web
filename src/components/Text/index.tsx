@@ -1,6 +1,5 @@
 import React from "react";
 
-// Define the props for the Text component
 interface TextProps extends React.HTMLAttributes<HTMLElement> {
   children: React.ReactNode;
   size?: "jumbo" | "xl" | "lg" | "md" | "sm";
@@ -29,7 +28,10 @@ const Text: React.FC<TextProps> = ({
     serif: "font-serif",
   };
 
-  const combinedClassName = `${sizeClasses[size]} ${className} ${fontClasses[fontFamily] || ""}`;
+  const headingReset = "font-inherit leading-tight";
+  const combinedClassName = `${sizeClasses[size]} ${className} ${fontClasses[fontFamily] || ""} ${
+    variant.startsWith("h") ? headingReset : ""
+  }`;
 
   switch (variant) {
     case "h1":
